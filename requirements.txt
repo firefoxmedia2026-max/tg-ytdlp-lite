@@ -1,0 +1,23 @@
+# LITE requirements: only what the bot actually imports (checked with an AST scan).
+# Removed vs. the original: moviepy (+numpy, imageio, tqdm, proglog), firebase-admin
+# (+grpc, google-cloud-*, google-api-python-client), fastapi/uvicorn/jinja2 (dashboard),
+# bgutil PO-token plugin (needs a Docker server), curl_cffi, aiohttp, aiofiles.
+
+pyrotgfork
+TgCrypto-pyrofork
+requests<3,>=2.8.1
+urllib3
+psutil
+pillow
+chardet
+tldextract
+sdnotify
+
+# ffmpeg binary (~70 MB installed). Used only if the server has no system ffmpeg
+# (see _ensure_ffmpeg_on_path in magic.py). Delete this line if `ffmpeg -version` works.
+imageio-ffmpeg
+
+# yt-dlp pre-releases, as in the original requirements
+--pre
+yt-dlp[default]
+gallery-dl
